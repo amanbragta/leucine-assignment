@@ -9,7 +9,6 @@ function ListTodos() {
         queryKey:['todos'],
         queryFn:async ()=>{
         const {data:{session}} = await supabase.auth.getSession()
-          console.log(session)
           return axios.get(`${import.meta.env.VITE_API_URL}/todos`,{
             headers:{
               Authorization: `Bearer ${session.access_token}`
@@ -20,7 +19,7 @@ function ListTodos() {
     if(isLoading) return "Loading..."
   return (
     <div className='mt-8 flex flex-col gap-2 items-center'>
-        {data?.data.map(item=>(
+        {data.data && data?.data.map(item=>(
             <Todos key={item.id} data={item}/>
         ))}
         <Summarise/>

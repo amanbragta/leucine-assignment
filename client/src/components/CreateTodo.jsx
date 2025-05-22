@@ -21,7 +21,7 @@ function CreateTodo() {
         const prevData = query.getQueryData(['todos'])
         const newData = {task:val,id:prevData.data.length}
         query.setQueryData(['todos'],(oldData)=>{
-          return {...oldData,data:[...prevData.data,newData]}
+          return {...oldData,data:[newData,...prevData.data]}
         })
         setNewTodo('')
         return prevData

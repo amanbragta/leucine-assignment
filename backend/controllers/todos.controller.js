@@ -7,7 +7,12 @@ const supabase = createClient(
 
 export const getTodos = async (req, res) => {
   const id = req.user.id;
-  const { data } = await supabase.from("todos").select().eq("user_id", id);
+  const { data } = await supabase
+    .from("todos")
+    .select()
+    .eq("user_id", id)
+    .order("inserted_at", { ascending: false });
+
   res.status(200).send(data);
 };
 
