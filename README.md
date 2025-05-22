@@ -4,6 +4,7 @@ A full-stack app that allows users to create and manage todos, summarize them us
 # Features
 - CRUD operations for todos (Supabase backend)
 - JWT-protected endpoints
+- Authentication using OAuth (Google)
 - LLM-based summarization via Cohere
 - Sends summaries to Slack
 - Frontend built with React
@@ -33,4 +34,3 @@ A full-stack app that allows users to create and manage todos, summarize them us
 - Place it in your .env as COHERE_API_KEY.
 ## .ENV.EXAMPLE:
 - See .env.example for required variables.
-  
